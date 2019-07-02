@@ -1,0 +1,177 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://images/santa_tailes1.tres" type="TileSet" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://images/BG/BG.png" type="Texture" id=3]
+[ext_resource path="res://images/present/gift-575400_640.png" type="Texture" id=4]
+[ext_resource path="res://Label.gd" type="Script" id=5]
+[ext_resource path="res://Present.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Main" type="Node" index="0"]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+visible = false
+scale = Vector2( 0.7, 0.7 )
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 589815, 23, 0, 589819, 23, 0, 786427, 24, 0, 851960, 1, 0, 851962, 1, 0, 851964, 1, 0, 851966, 2, 0, 983032, 4, 0, 983034, 4, 0, 983036, 4, 0, 983038, 5, 0, 1114104, 4, 0, 1114106, 4, 0, 1114108, 4, 0, 1114110, 5, 0, 1245176, 4, 0, 1245178, 4, 0, 1245180, 4, 0, 1245182, 9, 0, 1179648, 1, 0, 1179650, 1, 0, 1179652, 1, 0, 1179654, 1, 0, 1179656, 1, 0, 1179658, 27, 0, 1179660, 27, 0, 1179662, 27, 0, 1179664, 2, 0, 1179670, 0, 0, 1179672, 1, 0, 1179674, 1, 0, 1179676, 1, 0, 1179678, 1, 0, 1376248, 4, 0, 1376250, 4, 0, 1376252, 4, 0, 1376254, 4, 0, 1310720, 4, 0, 1310722, 4, 0, 1310724, 4, 0, 1310726, 4, 0, 1310728, 4, 0, 1310730, 4, 0, 1310732, 4, 0, 1310734, 4, 0, 1310736, 9, 0, 1310738, 10, 0, 1310740, 6, 0, 1310742, 7, 0, 1310744, 4, 0, 1310746, 4, 0, 1310748, 4, 0, 1310750, 4, 0, 1310752, 4, 0, 1507320, 4, 0, 1507322, 4, 0, 1507324, 4, 0, 1507326, 4, 0, 1441792, 4, 0, 1441794, 4, 0, 1441796, 4, 0, 1441798, 4, 0, 1441800, 4, 0, 1441802, 4, 0, 1441804, 4, 0, 1441806, 4, 0, 1441808, 4, 0, 1441810, 4, 0, 1441812, 4, 0, 1441814, 4, 0, 1441816, 4, 0, 1441818, 4, 0, 1441820, 4, 0, 1441822, 4, 0, 1441824, 4, 0 )
+_sections_unfolded = [ "Cell", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 597.14, 1412.33 )
+scale = Vector2( 26.6875, 0.675644 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision", "Pickable", "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="icon" type="Sprite" parent="StaticBody2D" index="0"]
+
+position = Vector2( -1.60544, -0.529052 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+
+position = Vector2( -2.17147, -1.47244 )
+scale = Vector2( 3.14945, 3.14945 )
+shape = SubResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="2"]
+
+editor/display_folded = true
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+
+[node name="BG" type="Sprite" parent="ParallaxBackground" index="0"]
+
+visible = false
+position = Vector2( 902.38, 446.595 )
+texture = ExtResource( 3 )
+
+[node name="hud" type="CanvasLayer" parent="." index="3"]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="presents_rect" type="TextureRect" parent="hud" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1425.0
+margin_top = 54.0
+margin_right = 1465.0
+margin_bottom = 94.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+stretch_mode = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="presents" type="Sprite" parent="hud/presents_rect" index="0"]
+
+visible = false
+position = Vector2( 5.07544, 23.7719 )
+scale = Vector2( 0.0631008, 0.0578358 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="hud/presents_rect" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 17.0
+margin_top = 9.0
+margin_right = 72.0
+margin_bottom = 44.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+align = 1
+valign = 1
+percent_visible = 0.5
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 5 )
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="Presents" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
+visible = false
+
+[node name="Present" parent="Presents" index="0" instance=ExtResource( 6 )]
+
+visible = false
+position = Vector2( 285.97, 711.832 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Present2" parent="Presents" index="1" instance=ExtResource( 6 )]
+
+visible = false
+position = Vector2( 416.422, 701.013 )
+scale = Vector2( 1.50996, 1.53345 )
+
+[node name="Present3" parent="Presents" index="2" instance=ExtResource( 6 )]
+
+visible = false
+position = Vector2( 503.744, 724.176 )
+scale = Vector2( 1.86227, 1.72135 )
+
+

@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Present.gd" type="Script" id=1]
+[ext_resource path="res://images/present/gift-575400_640.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "present_rotate"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("gift-575400_640:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 90.0, 180.0, 270.0, 360.0 ]
+}
+
+[node name="Present" type="Area2D"]
+
+position = Vector2( 1.06503, -0.710022 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( -1.84433, 0.757146 )
+scale = Vector2( 0.705201, 0.679596 )
+shape = SubResource( 1 )
+
+[node name="gift-575400_640" type="Sprite" parent="." index="1"]
+
+position = Vector2( -1.8715, 0.726676 )
+rotation = 6.28319
+scale = Vector2( 0.0209678, 0.0205533 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+
+root_node = NodePath("..")
+autoplay = "present_rotate"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/present_rotate = SubResource( 2 )
+blend_times = [  ]
+
+[connection signal="body_entered" from="." to="." method="_on_Present_body_entered"]
+
+
